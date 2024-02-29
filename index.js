@@ -42,7 +42,11 @@ app.get("/api/:date?", function (req, res){
     unixDate = null;
     utcDate = null;
   }
-  res.json({unix: unixDate, utc: utcDate});
+  if (unixDate === null || utcDate === null){
+    res.json({error: "Invalid Date"});
+  } else {
+    res.json({unix: unixDate, utc: utcDate});
+  }
 })
 
 
