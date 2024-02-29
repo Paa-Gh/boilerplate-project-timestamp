@@ -33,7 +33,7 @@ app.get("/api/:date?", function (req, res){
     unixDate = new Date().getTime();
     utcDate = new Date().toUTCString();
   } else if (reqDate.match(/^\d+$/)){
-    unixDate = parseInt(reqDate);
+    unixDate = new Date(parseInt(reqDate)).getTime();
     utcDate = new Date(parseInt(reqDate)).toUTCString();
   } else if (reqDate.match(/^\d{4}-\d{2}-\d{2}$/)){
     unixDate = new Date(reqDate).getTime();
